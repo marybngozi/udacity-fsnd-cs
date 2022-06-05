@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>My Home</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="/static/img/favicon.png" />
+    <link type="text/css" rel="stylesheet" href="/static/css/main.css" />
+    <style></style>
+  </head>
+  <body>
+    <div class="header">
+      <h1>Famila Folio</h1>
+      <p><b>Portfolio</b> website for me and my Awesome teams</p>
+    </div>
+
+    <div><a href="#" class="btn warning">Add New Team</a></div>
+
+    <div class="row">
+      <div class="main">
+        <h1>Add Teams</h1>
+
+        <form action="/teams" method="post">
+          <div>
+            <label for="team_name">Enter Team Name</label>
+            <input type="text" name="team_name" required />
+          </div>
+
+          <div>
+            <button class="btn success" type="submit">Create Team</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer">
+      <h2>Footer</h2>
+    </div>
+  </body>
+</html>

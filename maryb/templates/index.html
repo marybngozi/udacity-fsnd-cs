@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>My Home</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="/static/img/favicon.png" />
+    <link type="text/css" rel="stylesheet" href="/static/css/main.css" />
+    <style></style>
+  </head>
+  <body>
+    <div class="header">
+      <h1>Famila Folio</h1>
+      <p><b>Portfolio</b> website for me and my Awesome teams</p>
+    </div>
+
+    <div><a href="/teams" class="btn warning">Add New Team</a></div>
+
+    <div class="row">
+      <div class="main">
+        <h1>Teams</h1>
+
+        <ul>
+          {% for team in teams %}
+          <li>
+            <div>
+              <h2>Team {{team.name}}</h2>
+            </div>
+            <div>
+              <a href="/teams/{{team.id}}" class="btn success">View</a>
+              <button data-id="{{team.id}}" class="btn danger delete">
+                Delete
+              </button>
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer">
+      <h2>Footer</h2>
+    </div>
+  </body>
+  <script>
+    document.querySelectorAll(".delete").forEach((btn) => {
+      btn.addEventListener("click", (event) => {
+        const teamId = btn.dataset.id;
+        deleteTeam(teamId);
+      });
+    });
+
+    function deleteTeam(teamId) {
+      fetch(`/teams/${teamId}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          window.location.reload();
+        })
+        .catch((err) => console.log({ err }));
+    }
+  </script>
+</html>
