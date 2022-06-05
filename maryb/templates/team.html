@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>My Team</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="/static/img/favicon.png" />
+    <link type="text/css" rel="stylesheet" href="/static/css/main.css" />
+    <style></style>
+  </head>
+  <body>
+    <div class="header">
+      <h1>Team {{team.name}}</h1>
+      <p>Awesome and wonderful place</p>
+    </div>
+
+    <div>
+      <a href="/" class="btn warning">Home</a>
+    </div>
+
+    <div class="row">
+      <div class="main">
+        <h1>Teams Members</h1>
+
+        <ol>
+          {% for person in persons %}
+          <li>
+            <div>
+              <img
+                width="50"
+                height="50"
+                src="https://avatars.dicebear.com/api/human/{{person.firstname}}.png"
+                alt="Ray Nart"
+              />
+            </div>
+            <div>
+              <h3>{{person.firstname}} {{person.lastname}}</h3>
+            </div>
+          </li>
+          {% endfor %}
+        </ol>
+      </div>
+    </div>
+
+    <div class="footer">
+      <h2>Footer</h2>
+    </div>
+  </body>
+</html>
